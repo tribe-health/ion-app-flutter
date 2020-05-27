@@ -1,8 +1,8 @@
 #!/bin/bash
 
 FLUTTER_APP_FOLDER=$(cd `dirname $0`/../; pwd)
-FLUTTER_APP_ORG=com.github.pion.ion
-FLUTTER_APP_PROJECT_NAME=ion_flutter_example
+FLUTTER_APP_ORG=com.tribehealthsolutions.talk
+FLUTTER_APP_PROJECT_NAME=tribe_talk
 CMD=$1
 
 function cleanup() {
