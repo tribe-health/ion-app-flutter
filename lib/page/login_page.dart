@@ -27,8 +27,8 @@ class _LoginPageState extends State<LoginPage> {
     IonHelper helper = widget._helper;
     prefs = await SharedPreferences.getInstance();
     setState(() {
-      _server = prefs.getString('server') ?? 'pionion.org';
-      _roomID = prefs.getString('room') ?? 'room1';
+      _server = prefs.getString('server') ?? 'talk.tribecore.io';
+      _roomID = prefs.getString('room') ?? 'Tribe';
     });
 
     helper.on('transport-open', () {
