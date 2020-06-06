@@ -21,7 +21,7 @@ class _MeetingPageState extends State<MeetingPage> {
   bool _cameraOff = false;
   bool _microphoneOff = false;
   bool _speakerOn = true;
-  var _scaffoldkey = new GlobalKey<ScaffoldState>();
+  var _scaffoldkey = GlobalKey<ScaffoldState>();
   var _messages = [];
   var name;
   var room;
@@ -69,6 +69,17 @@ class _MeetingPageState extends State<MeetingPage> {
         });
       }
       this._showSnackBar(":::stream-remove [$mid]:::");
+    });
+
+    client.on('broadcast', (rid, uid, info) async {
+      print('message: ' + info.toString());
+      _messages.add({
+        "name":info['senderName'],
+        "text":info['msg']
+      });
+      this.setState((){
+        _messages = _messages;
+      });
     });
 
 
@@ -175,7 +186,7 @@ class _MeetingPageState extends State<MeetingPage> {
   }
 
   List<Widget> _buildVideoViews() {
-    List<Widget> views = new List<Widget>();
+    List<Widget> views = List<Widget>();
     if (_remoteVideos.length > 1)
       _remoteVideos.getRange(1, _remoteVideos.length).forEach((adapter) {
         adapter.objectFit = RTCVideoViewObjectFit.RTCVideoViewObjectFitCover;
@@ -541,6 +552,7 @@ class _MeetingPageState extends State<MeetingPage> {
                                     size: 28.0,
                                     color: Colors.white,
                                   ),
+                                  onPressed: (){},
                                 ),
                                 //Chat message
                                 IconButton(
