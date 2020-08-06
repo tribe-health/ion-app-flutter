@@ -24,11 +24,13 @@ dependencies:
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
   cupertino_icons: ^0.1.2
-  flutter_icons: ^0.1.3
+
+  flutter_icons: ^1.0.0
   flutter_ion:
     git:
       url: https://github.com/tribe-health/ion-sdk-flutter.git
       ref: master
+
   shared_preferences: ^0.5.7 
   date_format: ^1.0.6
   quiver: ^2.1.3
